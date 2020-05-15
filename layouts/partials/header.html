@@ -1,0 +1,14 @@
+<header>
+    <a id="title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+    <label for="show-menu" class="show-menu">Menu</label>
+    <input type="checkbox" id="show-menu" role="button">
+    <nav>
+	<ul>
+	    {{ range .Site.Menus.main }}
+		<li>
+                    <a href="{{ .URL }}">{{ .Name }}</a>
+                </li>
+	    {{ end }}
+	</ul>
+    </nav>
+</header>

@@ -1,0 +1,52 @@
+{{ define "main" }}
+    <header>
+	<h1>{{ .Site.Title }}</h1>
+	<h3>I compose music and write stuff</h3>
+    </header>
+
+    {{ .Content }}
+
+    <h3>Read more from me</h3>
+
+    {{ with .Site.GetPage "/about" }}
+	<a class="btn" href="{{ .Permalink }}">More about me</a>
+    {{ end }}
+
+    {{ with .Site.GetPage "/blog" }}
+	<a class="btn" href="{{ .Permalink }}">My blog</a>
+    {{ end }}
+
+    {{ with .Site.GetPage "/projects" }}
+	<a class="btn" href="{{ .Permalink }}">My projects</a>
+    {{ end }}
+
+    <h3>Find me on other places</h3>
+
+    {{ with .Site.Params.social.mastodon }}
+	<a class="btn" href="{{ . }}">Mastodon</a>
+    {{- end -}}
+    {{ with .Site.Params.social.twitter }}
+	<a class="btn" href="{{ . }}">Twitter</a>
+    {{- end -}}
+
+    {{ with .Site.Params.social.git }}
+	<a class="btn" href="{{ . }}">Git Repos</a>
+    {{- end -}}
+
+    {{ with .OutputFormats.Get "rss" }}
+	<a class="btn" href="{{ .Permalink }}">RSS</a>
+    {{- end -}}
+
+    <h2>Latest Post</h2>
+
+    {{ range first 3 .Site.RegularPages }}
+	<article>
+	    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+	    {{ partial "list-post.html" . }}
+	</article>
+    {{ end }}
+
+    {{ with .Site.GetPage "/blog" }}
+	<a href="{{ .Permalink }}">Read more posts</a>
+    {{ end }}
+{{ end }}

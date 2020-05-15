@@ -1,0 +1,31 @@
+<meta name="viewport" content="width=device-width">
+
+{{ if .IsHome -}}
+    <title>{{ .Site.Title }}</title>
+{{- else -}}
+    <title>{{ .Site.Title }} - {{ .Title }}</title>
+{{- end }}
+
+<meta name="author" content='{{ delimit .Site.Author ", " }}' />
+<meta name="description" content="{{ .Description }}" />
+<meta name="keywords" content="{{ delimit .Keywords ", " }}" />
+
+<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/normalize.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/fonts.css">
+{{- $style := resources.Get "css/main.scss" | toCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+
+{{ range .AlternativeOutputFormats -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
+
+{{- template "_internal/opengraph.html" . }}
+
+{{- template "_internal/twitter_cards.html" . -}}
+
+<link rel="apple-touch-icon-precomposed" sizes="256x256" href="{{ .Site.BaseURL }}/favicon/favicon-256.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ .Site.BaseURL }}/favicon/favicon-144.png">
+<link rel="apple-touch-icon-precomposed" sizes="128x128" href="{{ .Site.BaseURL }}/favicon/favicon-128.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ .Site.BaseURL }}/favicon/favicon-72.png">
+<link rel="apple-touch-icon-precomposed" href="{{ .Site.BaseURL }}/favicon/favicon.png">
+<link rel="shortcut icon" href="{{ .Site.BaseURL }}/favicon/favicon.png">

@@ -1,0 +1,29 @@
+{{ define "main" }}
+    <h1>{{ .Title }}</h1>
+    <p id="date">{{.Date.Format "2006-01-02"}}</p>
+    <p>{{ .WordCount }} words, ~ {{ .ReadingTime }} min reading time</p>
+
+    <p>
+	{{ with .Params.categories }}
+	    <span id="categories">
+		{{ range . }}
+		    <a href="{{ "categories" | absURL}}/{{ . | urlize }}">{{ . }}</a>
+		{{ end }}
+	    </span>
+	{{ end }}
+	{{ with .Params.tags }}
+	    <span id="tags">
+		{{ range . }}
+		    <a href="{{ "tags" | absURL}}/{{ . | urlize }}">{{ . }}</a>
+		{{ end }}
+	    </span>
+	{{ end }}
+    </p>
+    {{ .Content }}
+
+    {{ with .Site.Params.comment.commentmail }}
+	<p class="comment-notice">
+	    If you would like to comment on this post, feel free to write me a mail at {{ . }}!
+	</p>
+    {{ end }}
+{{ end }}

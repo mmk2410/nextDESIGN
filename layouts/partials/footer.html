@@ -1,0 +1,16 @@
+<p>
+  {{ with .Site.Params.copyrighthtml }}
+  {{ . | safeHTML }}
+  {{ end }}
+</p>
+{{ with .Site.GetPage "/imprint" }}
+    <p>
+	<a href="{{ .Permalink }}">{{ .Site.Params.imprinttext }}</a>
+    </p>
+{{ end }}
+<p>Last updated: {{ .Lastmod.Format "2006-01-02" }}
+    {{ $giturl := .Site.Params.giturl }}
+    {{- with .GitInfo }}
+	(<a href="{{ $giturl }}" target="_blank">{{ .AbbreviatedHash }}</a>)
+    {{- end -}}
+</p>
