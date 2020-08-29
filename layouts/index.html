@@ -22,16 +22,20 @@
 
     <h3>Find me on other places</h3>
 
+    {{ with .OutputFormats.Get "rss" }}
+	<a class="btn" href="{{ .Permalink }}">RSS Feed</a>
+    {{- end -}}
+
     {{ with .Site.Params.social.mastodon }}
 	<a class="btn" href="{{ . }}">Mastodon</a>
     {{- end -}}
 
-    {{ with .Site.Params.social.git }}
-	<a class="btn" href="{{ . }}">Git Repos</a>
+    {{ with .Site.Params.social.gitea }}
+	<a class="btn" href="{{ . }}">Repos on Gitea</a>
     {{- end -}}
 
-    {{ with .OutputFormats.Get "rss" }}
-	<a class="btn" href="{{ .Permalink }}">RSS</a>
+    {{ with .Site.Params.social.gitlab }}
+	<a class="btn" href="{{ . }}">Repos on GitLab</a>
     {{- end -}}
 
     <h2>Latest Post</h2>
