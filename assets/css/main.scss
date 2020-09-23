@@ -12,11 +12,17 @@
  ***************/
 
 $c-bg: #fafafa;
+$c-bg-inv: #333;
 $c-bg-main: #fff;
+$c-bg-main-inv: #222;
 $c-primary: #4d3c9b;
+$c-primary-inv: #755bf0;
 $c-bg-category: #4d3c9b;
+$c-bg-category-inv: #755bf0;
 $c-bg-tag: #8171c8;
+$c-bg-tag-inv: #4d3c9b;
 $c-font: #333;
+$c-font-inv: #fafafa;
 $c-nav-font: #f4f4f4;
 $c-btn-font: $c-nav-font;
 $c-btn-bg: $c-bg-category;
@@ -33,6 +39,11 @@ body {
     color: $c-font;
     font-family: "Raleway", sans-serif;
     line-height: 1.5;
+
+    @media (prefers-color-scheme: dark) {
+	background-color: $c-bg-inv;
+	color: $c-font-inv;
+    }
 }
 
 body > header {
@@ -130,6 +141,11 @@ main {
     max-width: 1000px;
     padding: 40px;
 
+    @media (prefers-color-scheme: dark) {
+	background-color: $c-bg-main-inv;
+	box-shadow: none;
+    }
+
     article {
 	margin: 40px 0;
     }
@@ -141,6 +157,10 @@ main {
 	text-decoration: underline;
 	text-decoration-color: $c-primary;
 	text-decoration-thickness: 4px;
+
+	@media (prefers-color-scheme: dark) {
+	    text-decoration-color: $c-primary-inv;
+	}
     }
 
     h2 {
@@ -151,6 +171,11 @@ main {
 	a {
 	    color: $c-font;
 	    text-decoration-color: $c-primary;
+
+	    @media (prefers-color-scheme: dark) {
+		color: $c-font-inv;
+		text-decoration-color: $c-primary-inv;
+	    }
 
 	    &:hover {
 		text-decoration: none;
@@ -169,6 +194,10 @@ main {
     a {
 	color: $c-primary;
 	text-decoration: none;
+
+	@media (prefers-color-scheme: dark) {
+	    color: $c-primary-inv;
+	}
 
 	&:hover {
 	    text-decoration: underline;
@@ -222,10 +251,18 @@ main {
 
     #tags > a {
 	background: $c-bg-tag;
+
+	@media (prefers-color-scheme: dark) {
+	    background: $c-bg-tag-inv;
+	}
     }
 
     #categories > a {
 	background: $c-bg-category;
+
+	@media (prefers-color-scheme: dark) {
+	    background: $c-bg-category-inv;
+	}
     }
 
     @media screen and (max-width: 1000px) {
