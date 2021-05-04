@@ -40,45 +40,41 @@
 }
 
 /**************
- * Hermit
+ * JetBrains Mono
  **************/
 
-/* hermit */
+/* JetBrains Mono Regular */
 @font-face {
-  font-family: 'Hermit';
+  font-family: 'JetBrains Mono';
   font-style: normal;
   font-weight: 400;
-  src: local('Hermit'),
-       url('/fonts/Hermit-Regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/Hermit-Regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('JetBrains Mono'),
+       url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
 }
 
-/* hermit italic */
+/* JetBrains Mono Regular Italic */
 @font-face {
-  font-family: 'Hermit';
+  font-family: 'JetBrains Mono';
   font-style: italic;
   font-weight: 400;
-  src: local('Hermit'),
-       url('/fonts/Hermit-RegularItalic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/Hermit-RegularItalic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('JetBrains Mono Italic'),
+       url('/fonts/JetBrainsMono-RegularItalic.woff2') format('woff2');
 }
 
-/* hermit bold */
+/* JetBrains Mono Bold */
 @font-face {
-  font-family: 'Hermit';
+  font-family: 'JetBrains Mono';
   font-style: normal;
   font-weight: 700;
-  src: local('Hermit'),
-       url('/fonts/Hermit-Bold.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/Hermit-Bold.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('JetBrains Mono Bold'),
+       url('/fonts/JetBrainsMono-Bold.woff2') format('woff2');
 }
 
-/* hermit bold italic */
+/* JetBrains Mono Bold Italic italic */
 @font-face {
-  font-family: 'Hermit';
+  font-family: 'JetBrains Mono';
   font-style: italic;
   font-weight: 700;
-  src: local('Hermit'),
-       url('/fonts/Hermit-BoldItalic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/Hermit-BoldItalic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('JetBrains Mono Bold Italic'),
+       url('/fonts/JetBrainsMono-BoldItalic.woff2') format('woff2');
 }
