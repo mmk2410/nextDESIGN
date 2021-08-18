@@ -21,9 +21,10 @@
     </p>
     {{ .Content }}
 
-    {{ with .Site.Params.comment.commentmail }}
-	<p class="comment-notice">
-	    If you would like to comment on this post, feel free to write me a mail at {{ . }}!
-	</p>
+    {{ if .Site.Params.comment.comments }}
+       <div class="comment">
+           <p>I would like to hear what you think about this post. Feel free to write me a mail!</p>
+           <a class="btn" href="mailto:comment@mmk2410.org?subject=Reply to: &quot;{{ .Page.Title }}&quot;">Reply by mail</a>
+       </div>
     {{ end }}
 {{ end }}
