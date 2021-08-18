@@ -44,6 +44,7 @@ body {
     color: $c-font;
     font-family: "Raleway", sans-serif;
     line-height: 1.5;
+    text-align: justify;
 
     @media (prefers-color-scheme: dark) {
 	background-color: $c-bg-inv;
