@@ -1,7 +1,7 @@
 {{ define "main" }}
     <header>
 	<h1>{{ .Site.Title }}</h1>
-	<h3>I compose music and write stuff</h3>
+	<h3>{{ .Site.Params.about }}</h3>
     </header>
 
     {{ .Content }}
