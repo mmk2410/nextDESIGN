@@ -1,5 +1,10 @@
 # nextDESIGN v9
 
+## Version 9.4.1 (2021-08-19)
+
+- Use variable for mail address in comments
+- Only align paragraphs justified, not other elements e.g. headlines
+
 ## Version 9.4 (2021-08-18)
 
 - Adjusted font sizes
