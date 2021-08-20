@@ -1,5 +1,10 @@
 # nextDESIGN v9
 
+## Version 9.4.2 (2021-08-20)
+
+- Slight improvements to reply button
+- Decrease content width a bit
+
 ## Version 9.4.1 (2021-08-19)
 
 - Use variable for mail address in comments
