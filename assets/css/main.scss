@@ -255,12 +255,16 @@ main {
     }
 
     .comment {
-        font-size: 0.95rem;
         margin-top: $s-comment-margin-top;
         text-align: center;
 
         a {
             font-size: 1.1rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            text-align: center;
         }
     }
 
