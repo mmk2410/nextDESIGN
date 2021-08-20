@@ -27,7 +27,7 @@ $c-nav-font: #f4f4f4;
 $c-btn-font: $c-nav-font;
 $c-btn-bg: $c-bg-category;
 
-$s-content: 1000px;
+$s-content: 800px;
 $s-nav-title: 24px;
 $s-border: 2px;
 $s-border-radius: 2px;
@@ -144,7 +144,7 @@ main {
     border: solid $s-border $c-primary;
     box-shadow: $p-box-shadow;
     margin: 100px auto;
-    max-width: 1000px;
+    max-width: $s-content;
     padding: 40px;
 
     @media (prefers-color-scheme: dark) {
