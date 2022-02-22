@@ -1,30 +1,32 @@
 {{ define "main" }}
-    <h1>{{ .Title }}</h1>
-    <p id="date">{{.Date.Format "2006-01-02"}}</p>
-    <p>{{ .WordCount }} words, ~ {{ .ReadingTime }} min reading time</p>
+<h1>{{ .Title }}</h1>
+<p id="date">{{.Date.Format "2006-01-02"}}</p>
+<p>{{ .WordCount }} words, ~ {{ .ReadingTime }} min reading time</p>
 
-    <p>
-	{{ with .Params.categories }}
-	    <span id="categories">
-		{{ range . }}
-		    <a href="{{ "categories" | absURL}}/{{ . | urlize }}">{{ . }}</a>
-		{{ end }}
-	    </span>
-	{{ end }}
-	{{ with .Params.tags }}
-	    <span id="tags">
-		{{ range . }}
-		    <a href="{{ "tags" | absURL}}/{{ . | urlize }}">{{ . }}</a>
-		{{ end }}
-	    </span>
-	{{ end }}
-    </p>
-    {{ .Content }}
-
-    {{ if isset .Site.Params.comment "mail" }}
-       <div class="comment">
-           <p>I would like to hear what you think about this post. Feel free to write me a mail!</p>
-           <a class="btn" href="mailto:{{ .Site.Params.comment.mail }}?subject=Reply to: &quot;{{ .Page.Title }}&quot;">Reply by mail</a>
-       </div>
+<p>
+  <div class="tagories">
+    {{ with .Params.categories }}
+    <span id="categories">
+      {{ range . }}
+      <a href="{{ "categories" | absURL}}/{{ . | urlize }}">{{ . }}</a>
+      {{ end }}
+    </span>
     {{ end }}
+    {{ with .Params.tags }}
+    <span id="tags">
+      {{ range . }}
+      <a href="{{ "tags" | absURL}}/{{ . | urlize }}">{{ . }}</a>
+      {{ end }}
+    </span>
+    {{ end }}
+  </div>
+</p>
+{{ .Content }}
+
+{{ if isset .Site.Params.comment "mail" }}
+<div class="comment">
+  <p>I would like to hear what you think about this post. Feel free to write me a mail!</p>
+  <a class="btn" href="mailto:{{ .Site.Params.comment.mail }}?subject=Reply to: &quot;{{ .Page.Title }}&quot;">Reply by mail</a>
+</div>
+{{ end }}
 {{ end }}

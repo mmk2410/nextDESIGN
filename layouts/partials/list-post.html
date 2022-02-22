@@ -1,21 +1,23 @@
 <p id="date">{{.Date.Format "2006-01-02"}}</p>
 <p>
+  <div class="tagories">
     {{ with .Params.categories }}
-	<span id="categories">
-	    {{ range . }}
-		<a href="{{ "categories" | absURL}}/{{ . | urlize }}">{{ . }}</a>
-	    {{ end }}
-	</span>
+    <span id="categories">
+      {{ range . }}
+      <a href="{{ "categories" | absURL}}/{{ . | urlize }}">{{ . }}</a>
+      {{ end }}
+    </span>
     {{ end }}
     {{ with .Params.tags }}
-	<span id="tags">
-	    {{ range . }}
-		<a href="{{ "tags" | absURL}}/{{ . | urlize }}">{{ . }}</a>
-	    {{ end }}
-	</span>
+    <span id="tags">
+      {{ range . }}
+      <a href="{{ "tags" | absURL}}/{{ . | urlize }}">{{ . }}</a>
+      {{ end }}
+    </span>
     {{ end }}
+  </div>
 </p>
 {{ .Summary }}
 {{- if .Truncated -}}
-    <p><a href="{{.Permalink}}">Read more</a></p>
+<p><a href="{{.Permalink}}">Read more</a></p>
 {{- end -}}

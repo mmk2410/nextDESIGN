@@ -3,7 +3,7 @@
  * nextDESIGN is a personal web design for mmk2410.org.
  * The current version (v9) is focused in simplicity and minimalism.
  *
- * 2020-2021 © Marcel Kapfer <opensource@mmk2410.org>
+ * 2020-2022 © Marcel Kapfer <opensource@mmk2410.org>
  * Licensed under the MIT License
  */
 
@@ -23,12 +23,13 @@ $c-bg-tag: #8171c8;
 $c-bg-tag-inv: #4d3c9b;
 $c-font: #333;
 $c-font-inv: #fafafa;
-$c-nav-font: #f4f4f4;
-$c-btn-font: $c-nav-font;
+$c-btn-font: $c-font;
 $c-btn-bg: $c-bg-category;
+$c-btn-shadow: #aaa;
+$c-btn-shadow-inv: #000;
 
 $s-content: 800px;
-$s-nav-title: 24px;
+$s-nav-title: 36px;
 $s-border: 2px;
 $s-border-radius: 2px;
 $s-comment-margin-top: 60px;
@@ -54,19 +55,22 @@ body {
 
 body > header {
     align-items: center;
-    color: $c-nav-font;
+    color: $c-font;
     display: flex;
-    background-color: $c-primary;
     justify-content: space-between;
     padding: 20px 40px;
 
     #title {
+        color: $c-font;
 	font-size: $s-nav-title;
 	font-weight: 700;
+        text-decoration: underline;
+        text-decoration-color: $c-primary;
+        text-decoration-thickness: 5px;
     }
 
     a {
-	color: $c-nav-font;
+	color: $c-primary;
 	text-decoration: none;
 
 	&:hover {
@@ -77,6 +81,31 @@ body > header {
     nav {
 	display: inline;
 
+        a {
+            text-transform: capitalize;
+            padding: 5px 6px;
+            display: inline-block;
+
+            &:hover {
+                text-decoration: none;
+
+                &:after {
+                    width: 100%;
+                    background: $c-primary;
+                }
+            }
+
+            &:after {
+                content: "";
+                display: block;
+                margin: auto;
+                height: 2px;
+                width: 0;
+                background: 0 0;
+                transition: width .25s ease, background-color .25s ease;
+            }
+        }
+
 	ul {
 	    margin: 0;
 	    padding: 0;
@@ -84,7 +113,6 @@ body > header {
 
 	    li {
 		display: inline;
-		padding-right: 10px;
 
 		&:last-child {
 		    padding-right: 0;
@@ -99,15 +127,20 @@ body > header {
 	padding: 10px;
 	text-align: center;
 	width: 100%;
+        color: $c-primary;
+        font-weight: bold;
+        text-transform: uppercase;
     }
 
     input[type=checkbox] {
 	display: none
     }
 
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1100px) {
 	border-radius: initial;
 	flex-direction: column;
+        background: $c-bg-main;
+        padding-bottom: 0;
 
 	nav {
 	    display: none;
@@ -137,15 +170,24 @@ body > header {
 	    display: block;
 	}
     }
+
+    @media (prefers-color-scheme: dark) {
+        background: $c-bg-inv;
+
+        #title {
+            color: $c-font-inv;
+        }
+    }
 }
 
 main {
     background-color: $c-bg-main;
     border: solid $s-border $c-primary;
+    border-radius: 25px;
     box-shadow: $p-box-shadow;
-    margin: 100px auto;
+    margin: 50px auto 100px;
     max-width: $s-content;
-    padding: 40px;
+    padding: 20px 60px 80px;
 
     @media (prefers-color-scheme: dark) {
 	background-color: $c-bg-main-inv;
@@ -227,12 +269,22 @@ main {
     }
 
     .btn {
-	color: $c-btn-font;
-	background: $c-btn-bg;
-	padding: 8px 16px;
+	border: 1px solid $c-btn-bg;
+	padding: 8px 12px;
 	border-radius: 20px;
 	line-height: 3;
 	white-space: nowrap;
+        transition: all 0.15s;
+        margin-right: 5px;
+
+        &:hover {
+            box-shadow: $c-btn-shadow 1px 2px 6px;
+            text-decoration: none;
+
+	    @media (prefers-color-scheme: dark) {
+	        box-shadow: $c-btn-shadow-inv 1px 2px 6px;
+	    }
+        }
     }
 
     .highlight > pre {
@@ -274,43 +326,62 @@ main {
 	padding: 4px 8px;
 	border-radius: 20px;
 	white-space: nowrap;
+        transition: all 0.15s;
+
+        &:hover {
+            box-shadow: $c-btn-shadow 1px 1px 4px;
+            text-decoration: none;
+
+	    @media (prefers-color-scheme: dark) {
+	        box-shadow: $c-btn-shadow-inv 1px 1px 4px;
+	    }
+        }
     }
 
     #tags > a {
-	background: $c-bg-tag;
-
-	@media (prefers-color-scheme: dark) {
-	    background: $c-bg-tag-inv;
-	}
+        color: $c-bg-tag;
+        border: 1px solid $c-bg-tag;
     }
 
     #categories > a {
-	background: $c-bg-category;
+        color: $c-primary;
+        border: 1px solid $c-primary;
+        margin-right: 3px;
 
 	@media (prefers-color-scheme: dark) {
-	    background: $c-bg-category-inv;
+	    color: $c-primary-inv;
+            border: 1px solid $c-primary-inv;
 	}
     }
 
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1100px) {
 	border: none;
 	box-shadow: none;
 	margin: 0 auto;
+        padding: 0 20px 80px;
+
+        .tagories {
+            text-align: left;
+        }
+
+        #tags a, #categories a {
+            line-height: 35px;
+        }
     }
 }
 
 footer {
-    background-color: $c-primary;
-    color: $c-nav-font;
+    background-color: $c-font;
+    color: $c-font-inv;
     padding: 40px;
     text-align: center;
 
     a {
-	color: $c-nav-font;
+	color: $c-font-inv;
 	text-decoration: none;
 
 	&:hover {
 	    text-decoration: underline;
 	}
     }
-}
+ }
