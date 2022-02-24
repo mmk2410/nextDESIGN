@@ -130,6 +130,10 @@ body > header {
         color: $c-primary;
         font-weight: bold;
         text-transform: uppercase;
+
+        @media (prefers-color-scheme: dark) {
+            color: $c-primary-inv;
+        }
     }
 
     input[type=checkbox] {
