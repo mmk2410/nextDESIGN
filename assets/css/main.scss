@@ -16,11 +16,11 @@ $c-bg-inv: #333;
 $c-bg-main: #fff;
 $c-bg-main-inv: #222;
 $c-primary: #4d3c9b;
-$c-primary-inv: #755bf0;
 $c-bg-category: #4d3c9b;
+$c-primary-inv: #ad9bff;
 $c-bg-category-inv: #755bf0;
 $c-bg-tag: #8171c8;
-$c-bg-tag-inv: #4d3c9b;
+$c-bg-tag-inv: #a49ccc;
 $c-font: #333;
 $c-font-inv: #fafafa;
 $c-btn-font: $c-font;
@@ -174,8 +174,22 @@ body > header {
     @media (prefers-color-scheme: dark) {
         background: $c-bg-inv;
 
+        a {
+	    color: $c-primary-inv;
+        }
+
         #title {
             color: $c-font-inv;
+        }
+
+        nav {
+            a {
+                &:hover {
+                    &:after {
+                        background: $c-primary-inv;
+                    }
+                }
+            }
         }
     }
 }
@@ -269,7 +283,7 @@ main {
     }
 
     .btn {
-	border: 1px solid $c-btn-bg;
+	border: 1px solid $c-primary;
 	padding: 8px 12px;
 	border-radius: 20px;
 	line-height: 3;
@@ -284,6 +298,10 @@ main {
 	    @media (prefers-color-scheme: dark) {
 	        box-shadow: $c-btn-shadow-inv 1px 2px 6px;
 	    }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            border-color: $c-primary-inv;
         }
     }
 
@@ -341,6 +359,11 @@ main {
     #tags > a {
         color: $c-bg-tag;
         border: 1px solid $c-bg-tag;
+
+        @media (prefers-color-scheme: dark) {
+            color: $c-bg-tag-inv;
+            border-color: $c-bg-tag-inv;
+        }
     }
 
     #categories > a {
