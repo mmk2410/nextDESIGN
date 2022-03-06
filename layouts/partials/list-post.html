@@ -17,7 +17,11 @@
     {{ end }}
   </div>
 </p>
-{{ .Summary }}
+
+<p>
+  {{ .Summary }}
+</p>
+
 {{- if .Truncated -}}
-<p><a href="{{.Permalink}}">Read more</a></p>
+  <p><a href="{{.Permalink}}">Read more</a></p>
 {{- end -}}
