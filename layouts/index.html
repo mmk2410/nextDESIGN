@@ -20,6 +20,10 @@
 	<a class="btn" href="{{ .Permalink }}">My projects</a>
     {{ end }}
 
+    {{ with .Site.Params.social.scribbles }}
+	<a class="btn" href="{{ . }}">My scribbles</a>
+    {{- end -}}
+
     <h4>Find me on other places</h3>
 
     {{ with .OutputFormats.Get "rss" }}
