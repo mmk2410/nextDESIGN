@@ -20,10 +20,6 @@
 	<a class="btn" href="{{ .Permalink }}">My projects</a>
     {{ end }}
 
-    {{ with .Site.Params.social.scribbles }}
-	<a class="btn" href="{{ . }}">My scribbles</a>
-    {{- end -}}
-
     <h4>Find me on other places</h3>
 
     {{ with .OutputFormats.Get "rss" }}
@@ -34,8 +30,8 @@
 	<a class="btn" href="{{ . }}">Mastodon</a>
     {{- end -}}
 
-    {{ with .Site.Params.social.gitea }}
-	<a class="btn" href="{{ . }}">Repos on Gitea</a>
+    {{ with .Site.Params.social.forgejo }}
+	<a class="btn" href="{{ . }}">Repos on Forgejo</a>
     {{- end -}}
 
     {{ with .Site.Params.social.gitlab }}
